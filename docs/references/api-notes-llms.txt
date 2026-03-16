@@ -1,0 +1,2 @@
+This file is a scratchpad for API notes that matter to agents.
+Prefer contract summaries over pasted prose.

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "defaults": {
+    "setup_script": "bash scripts/run-app.sh",
+    "common_actions": [
+      {
+        "name": "verify",
+        "command": "bash scripts/verify.sh"
+      },
+      {
+        "name": "docs-audit",
+        "command": "bash scripts/docs-audit.sh"
+      }
+    ]
+  }
+}

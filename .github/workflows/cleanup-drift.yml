@@ -1,0 +1,15 @@
+name: cleanup-drift
+
+on:
+  schedule:
+    - cron: '45 1 * * *'
+  workflow_dispatch:
+
+jobs:
+  drift-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder drift scan
+        run: |
+          echo "TODO: scan for duplication, stale helpers, large files, boundary drift"

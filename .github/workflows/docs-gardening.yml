@@ -1,0 +1,14 @@
+name: docs-gardening
+
+on:
+  schedule:
+    - cron: '15 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  docs-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit docs
+        run: bash scripts/docs-audit.sh

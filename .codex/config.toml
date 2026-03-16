@@ -1,0 +1,9 @@
+model = "gpt-5-codex"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = true
+
+[project]
+readme_file = "README.md"
+
+# Tune these settings per repo and per risk level.

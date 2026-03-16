@@ -1,0 +1,2 @@
+This file is a scratchpad for library notes that matter to agents.
+Keep entries short, factual, and version-aware.
