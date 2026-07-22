@@ -1,0 +1,38 @@
+name: Geultu Rust Toolchain Export
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@1.95.0
+        with:
+          components: rustfmt, clippy
+      - name: Export relocatable toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          toolchain="$(rustup show active-toolchain | awk '{print $1}')"
+          rustc -Vv
+          cargo -Vv
+          cargo fmt --version
+          cargo clippy --version
+          tar -C "$HOME/.rustup/toolchains" -czf "$RUNNER_TEMP/geultu-rust-toolchain-x86_64-linux.tar.gz" "$toolchain"
+          sha256sum "$RUNNER_TEMP/geultu-rust-toolchain-x86_64-linux.tar.gz" > "$RUNNER_TEMP/geultu-rust-toolchain-x86_64-linux.tar.gz.sha256"
+      - name: Upload toolchain
+        uses: actions/upload-artifact@v4
+        with:
+          name: geultu-rust-toolchain-x86_64-linux
+          path: |
+            ${{ runner.temp }}/geultu-rust-toolchain-x86_64-linux.tar.gz
+            ${{ runner.temp }}/geultu-rust-toolchain-x86_64-linux.tar.gz.sha256
+          compression-level: 0
+          if-no-files-found: error
