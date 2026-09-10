@@ -1,18 +1,11 @@
 # RELIABILITY.md
 
-## Reliability goals
+이 문서는 adopter가 사용할 수 있는 **optional reliability guidance**다. AgentHarness 자체의 runtime reliability나 현재 구현 상태를 설명하지 않는다.
 
-Replace vague claims with measurable targets.
+Canonical requirements와 Current 상태는 다음이 소유한다.
 
-Examples:
+- [`docs/SPEC.md`](docs/SPEC.md)
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md)
 
-- app startup completes within 800ms in local benchmark mode
-- no critical user journey span exceeds 2s at p95 in test environment
-- retries are bounded and idempotent where required
-
-## Operational rules
-
-- define SLO-like targets for critical paths
-- log structured events for start, success, failure, and retry
-- preserve reproducible bug scenarios
-- prefer deterministic tests over brittle timing assumptions
+Adopted product에서 reliability target을 정의할 때는 측정 가능한 critical-path 목표, 실제 retry/idempotency semantics, observable start/success/failure/retry evidence를 해당 제품의 specification과 implementation evidence에 연결해야 한다.
