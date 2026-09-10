@@ -33,48 +33,6 @@
 - shell exit semantics 검사
 - workflow→script wiring 검사
 
-## P0 — False Current 제거
-
-### Current
-`QUALITY_SCORE.md`가 존재하지 않는 Core domain/runtime/UI/tests 상태를 Current처럼 점수화한다.
-
-### Normative basis
-Current claim은 reachable implementation/evidence보다 강할 수 없다.
-
-### Preserve
-- quality gap을 측정한다는 아이디어 자체는 필요 시 재사용 가능.
-
-### Change
-- 현재 `QUALITY_SCORE.md`는 제거.
-- scorecard가 실제로 필요해질 때 implementation evidence 기반 artifact로 새로 정의한다.
-
-### Completion
-- repository에 구현되지 않은 runtime/test/UI를 현재 사실처럼 주장하는 문서가 없다.
-
-## P1 — Root authority 단일화
-
-### Current
-`ARCHITECTURE.md`, `PRODUCT_SENSE.md`, `RELIABILITY.md`, `THEORY_SUMMARY_KO.md` 등이 root에서 서로 다른 수준의 규범/설명 역할을 가진다.
-
-### Target
-Canonical authority는 다음으로 제한한다.
-- `docs/IDENTITY_AND_EVOLUTION.md`
-- `docs/SPEC.md`
-- `docs/ARCHITECTURE.md`
-- `docs/IMPLEMENTATION_STATUS.md`
-- `docs/PLAN.md`
-- 세부 근거 `docs/ANALYSIS.md`
-
-`AGENTS.md`, `WORKFLOW.md`, `SECURITY.md`는 독립 목적의 operational documents로 유지할 수 있다.
-
-### Dependency
-외부 consumer가 legacy root path를 참조하는지 확인해야 한다.
-
-### Completion
-- 각 concern에 canonical owner가 하나다.
-- root README와 AGENTS가 canonical paths를 가리킨다.
-- legacy docs를 유지한다면 명백한 non-authoritative pointer/guide다.
-
 ## P1 — Agent skill qualification
 
 ### Current
@@ -92,19 +50,7 @@ Canonical authority는 다음으로 제한한다.
 - 최소 qualification evidence가 repository에 남음.
 - 실패한 host-specific assumption이 core contract에 스며들지 않음.
 
-## P2 — Adoption acceptance contract
+## UNKNOWN / decision dependency
 
-### Current
-README에는 customize 순서가 있으나, 언제 template adoption이 완료되었다고 볼지 명확한 acceptance criteria가 없다.
-
-### Target
-다음이 모두 충족되면 adopted 상태로 본다.
-- `AGENTS.md`가 실제 repository constraints를 반영
-- canonical identity/spec/architecture가 실제 product에 맞게 채워짐
-- verification entry가 real toolchain에 연결됨
-- 최소 one representative change flow가 plan→implementation→verification→evidence로 닫힘
-- optional tooling은 wired/unwired가 명시됨
-
-### Completion
-- README 또는 onboarding 문서에서 위 acceptance가 명시됨.
-- placeholder 상태와 adopted 상태를 혼동하지 않음.
+- legacy root document path를 외부 downstream repository가 자동 참조하는지는 확인되지 않았다. 따라서 `ARCHITECTURE.md`, `PRODUCT_SENSE.md`, `RELIABILITY.md`는 삭제 대신 canonical docs를 가리키는 compatibility entry로 유지한다.
+- 실제 adopted repository에서 어떤 verification command가 필수인지는 이 template repository가 결정할 수 없다.
