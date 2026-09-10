@@ -1,31 +1,7 @@
 # PRODUCT_SENSE.md
 
-## Purpose
+제품 정체성·보존 조건·허용 변화·발전 방향의 canonical source는 [`docs/IDENTITY_AND_EVOLUTION.md`](docs/IDENTITY_AND_EVOLUTION.md)다.
 
-This document describes the product intent agents should preserve during implementation.
+필수 기능·입출력·오류·수용 기준은 [`docs/SPEC.md`](docs/SPEC.md)가 소유한다.
 
-## Core principles
-
-- prefer clarity over cleverness
-- minimize user effort
-- preserve trust through predictable behavior
-- default to reversible changes
-- optimize for the main user journey before edge cases
-
-## User-facing change rubric
-
-When changing behavior, evaluate:
-
-1. does this reduce friction for the primary task?
-2. does this preserve or improve comprehensibility?
-3. does this avoid surprising behavior?
-4. is failure visible and recoverable?
-5. is the change explainable in one short paragraph?
-
-## Anti-patterns
-
-- hidden state changes
-- silent destructive actions
-- unclear empty states
-- premature complexity
-- configuration that exists only for developer convenience
+이 root path는 기존 참조 호환을 위해 유지하며 normative authority를 갖지 않는다.
