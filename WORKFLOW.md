@@ -80,3 +80,14 @@ Escalate to a human before merge when:
 - production data semantics change
 - tests are insufficient for the risk level
 - rollback is unclear
+
+## Adoption
+
+1. `docs/IDENTITY_AND_EVOLUTION.md`와 `docs/SPEC.md`를 실제 제품에 맞춘다.
+2. `AGENTS.md`에 실제 repository constraints와 escalation rule을 반영한다.
+3. `docs/ARCHITECTURE.md`에 실제 owner/dependency/boundary를 기록한다.
+4. `scripts/verify.sh`와 필요 시 `run-tests.sh`/`run-app.sh`를 실제 toolchain에 연결한다.
+5. optional skill/CI/boundary tooling 중 실제 사용할 것만 wiring한다.
+6. 대표 non-trivial change 하나를 `plan → implementation → verification → evidence`로 끝까지 닫는다.
+
+위 단계가 끝나기 전에는 이 repository를 **adopted product repository**가 아니라 template 상태로 취급한다.
